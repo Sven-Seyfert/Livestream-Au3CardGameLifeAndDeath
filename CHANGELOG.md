@@ -9,12 +9,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Go to [legend](#legend---types-of-changes) for further information about the types of changes.
 
+## [1.1.0] - 2022-02-10
+
+### Changed
+
+- Update copyright year to 2022 in LICENSE.md file.
+- CHANGELOG.md adjustment to scroll up and scroll down.
+- Update of documents/templates (bug report-, feature request- and pull request template).
+- Update of the contributing file.
+- Code of Conduct update to their version v2.1.
+- Version bump.
+
+### Removed
+
+- Unnecessary documents/templates in docs directory.
+
 ## [1.0.0] - 2021-10-21
 
 ### Added
 
 - All repository data and dependencies.
+- Compiler information to executable.
 
+### Changed
+
+- Remove word "extension" in CHANGELOG.md file.
+- Date in CHANGELOG.md file.
+
+[1.1.0]: https://github.com/Sven-Seyfert/Livestream-Au3CardGameLifeAndDeath/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/Sven-Seyfert/Livestream-Au3CardGameLifeAndDeath/releases/tag/v1.0.0
 
 ---
