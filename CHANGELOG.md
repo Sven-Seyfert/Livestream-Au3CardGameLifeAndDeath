@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Go to [legend](#legend---types-of-changes) for further information about the types of changes.
 
+## [1.2.0] - 2022-02-11
+
+### Added
+
+- Links to the project badges/icons.
+- FAQ section to README.md file.
+
+### Changed:
+
+- Move "Keyboard shortcuts" section into "Getting started" section (as sub section after "Usage").
+- Version bump.
+
 ## [1.1.0] - 2022-02-10
 
 ### Changed
@@ -36,6 +48,7 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 - Remove word "extension" in CHANGELOG.md file.
 - Date in CHANGELOG.md file.
 
+[1.2.0]: https://github.com/Sven-Seyfert/Livestream-Au3CardGameLifeAndDeath/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/Sven-Seyfert/Livestream-Au3CardGameLifeAndDeath/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/Sven-Seyfert/Livestream-Au3CardGameLifeAndDeath/releases/tag/v1.0.0
 
