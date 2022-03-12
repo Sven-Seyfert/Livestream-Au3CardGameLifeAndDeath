@@ -1,4 +1,4 @@
-Func _doesUserWins( $iUserCardIndex, $iComputerCardIndex )
+Func _DoesUserWins( $iUserCardIndex, $iComputerCardIndex )
     If $iUserCardIndex > $iComputerCardIndex Then
         Return True
     EndIf
@@ -6,7 +6,7 @@ Func _doesUserWins( $iUserCardIndex, $iComputerCardIndex )
     Return False
 EndFunc
 
-Func _doesComputerWins( $iUserCardIndex, $iComputerCardIndex )
+Func _DoesComputerWins( $iUserCardIndex, $iComputerCardIndex )
     If $iUserCardIndex < $iComputerCardIndex Then
         Return True
     EndIf
@@ -14,7 +14,7 @@ Func _doesComputerWins( $iUserCardIndex, $iComputerCardIndex )
     Return False
 EndFunc
 
-Func _isTie( $iUserCardIndex, $iComputerCardIndex )
+Func _IsTie( $iUserCardIndex, $iComputerCardIndex )
     If $iUserCardIndex == $iComputerCardIndex Then
         Return True
     EndIf
@@ -22,45 +22,45 @@ Func _isTie( $iUserCardIndex, $iComputerCardIndex )
     Return False
 EndFunc
 
-Func _setUserCardDeck( $sCardUser, $sCardComputer )
-    _deleteDroppedCardsFromCardDecks()
+Func _SetUserCardDeck( $sCardUser, $sCardComputer )
+    _DeleteDroppedCardsFromCardDecks()
 
-    If _getCount( $aSavedCardsOfTie ) > 1 Then
-        _addToUserCardDeck()
+    If _GetCount( $aSavedCardsOfTie ) > 1 Then
+        _AddToUserCardDeck()
     EndIf
 
     _ArrayInsert( $aUserCardDeck, 0, $sCardUser )
     _ArrayInsert( $aUserCardDeck, 0, $sCardComputer )
 EndFunc
 
-Func _setComputerCardDeck( $sCardUser, $sCardComputer )
-    _deleteDroppedCardsFromCardDecks()
+Func _SetComputerCardDeck( $sCardUser, $sCardComputer )
+    _DeleteDroppedCardsFromCardDecks()
 
-    If _getCount( $aSavedCardsOfTie ) > 1 Then
-        _addToComputerCardDeck()
+    If _GetCount( $aSavedCardsOfTie ) > 1 Then
+        _AddToComputerCardDeck()
     EndIf
 
     _ArrayInsert( $aComputerCardDeck, 0, $sCardComputer )
     _ArrayInsert( $aComputerCardDeck, 0, $sCardUser )
 EndFunc
 
-Func _setUserAndComputerCardDecks( $sCardUser, $sCardComputer )
-    _deleteDroppedCardsFromCardDecks()
+Func _SetUserAndComputerCardDecks( $sCardUser, $sCardComputer )
+    _DeleteDroppedCardsFromCardDecks()
 
     _ArrayInsert( $aSavedCardsOfTie, 0, $sCardComputer )
     _ArrayInsert( $aSavedCardsOfTie, 0, $sCardUser )
 EndFunc
 
-Func _deleteDroppedCardsFromCardDecks()
-    Local $iUserCardDeckCount     = _getCount( $aUserCardDeck )
-    Local $iComputerCardDeckCount = _getCount( $aComputerCardDeck )
+Func _DeleteDroppedCardsFromCardDecks()
+    Local $iUserCardDeckCount     = _GetCount( $aUserCardDeck )
+    Local $iComputerCardDeckCount = _GetCount( $aComputerCardDeck )
 
     _ArrayDelete( $aUserCardDeck, $iUserCardDeckCount )
     _ArrayDelete( $aComputerCardDeck, $iComputerCardDeckCount )
 EndFunc
 
-Func _addToUserCardDeck()
-    Local $iSavedCardsOfTieCount = _getCount( $aSavedCardsOfTie ) - 1
+Func _AddToUserCardDeck()
+    Local $iSavedCardsOfTieCount = _GetCount( $aSavedCardsOfTie ) - 1
 
     For $i = 0 To $iSavedCardsOfTieCount Step 1
         _ArrayInsert( $aUserCardDeck, 0, $aSavedCardsOfTie[$i] )
@@ -69,8 +69,8 @@ Func _addToUserCardDeck()
     Global $aSavedCardsOfTie[1]
 EndFunc
 
-Func _addToComputerCardDeck()
-    Local $iSavedCardsOfTieCount = _getCount( $aSavedCardsOfTie ) - 1
+Func _AddToComputerCardDeck()
+    Local $iSavedCardsOfTieCount = _GetCount( $aSavedCardsOfTie ) - 1
 
     For $i = 0 To $iSavedCardsOfTieCount Step 1
         _ArrayInsert( $aComputerCardDeck, 0, $aSavedCardsOfTie[$i] )

@@ -1,82 +1,82 @@
-Func _playLifeAndDeath( $bWithSound = True )
-    If _isTheEndReached() Then
-        _exit()
+Func _PlayLifeAndDeath( $bWithSound = True )
+    If _IsTheEndReached() Then
+        _Exit()
     EndIf
 
-    Local $sCardUser                = _userPlaysCard()
-    Local $sCardUserWithoutSuit     = _getCardWithoutSuit( $sCardUser )
+    Local $sCardUser                = _UserPlaysCard()
+    Local $sCardUserWithoutSuit     = _GetCardWithoutSuit( $sCardUser )
 
-    Local $sCardComputer            = _computerPlaysCard()
-    Local $sCardComputerWithoutSuit = _getCardWithoutSuit( $sCardComputer )
+    Local $sCardComputer            = _ComputerPlaysCard()
+    Local $sCardComputerWithoutSuit = _GetCardWithoutSuit( $sCardComputer )
 
     If $bWithSound Then
         _SoundPlay( $aSoundCardDown )
         _SoundPlay( $aSoundCardDown )
     EndIf
 
-    _showCardsOnGui( $sCardUser, $sCardComputer )
-    _showRoundOnGui()
-    _resetGuiLabels()
+    _ShowCardsOnGui( $sCardUser, $sCardComputer )
+    _ShowRoundOnGui()
+    _ResetGuiLabels()
 
-    Local $iUserCardIndex     = _getCardIndex( $sCardUserWithoutSuit )
-    Local $iComputerCardIndex = _getCardIndex( $sCardComputerWithoutSuit )
+    Local $iUserCardIndex     = _GetCardIndex( $sCardUserWithoutSuit )
+    Local $iComputerCardIndex = _GetCardIndex( $sCardComputerWithoutSuit )
 
-    If _doesUserWins( $iUserCardIndex, $iComputerCardIndex ) Then
-        _setUserCardDeck( $sCardUser, $sCardComputer )
+    If _DoesUserWins( $iUserCardIndex, $iComputerCardIndex ) Then
+        _SetUserCardDeck( $sCardUser, $sCardComputer )
 
-        Local $iUserCardDeckCount        = _getCount( $aUserCardDeck ) + 1
-        Local $iComputerCardDeckCount    = _getCount( $aComputerCardDeck ) + 1
+        Local $iUserCardDeckCount        = _GetCount( $aUserCardDeck ) + 1
+        Local $iComputerCardDeckCount    = _GetCount( $aComputerCardDeck ) + 1
         Local $iSumOfCardsOfTheCardDecks = $iUserCardDeckCount + $iComputerCardDeckCount
 
-        _showUserWinsOnGui()
-        _showCardCount( $iUserCardDeckCount, $iComputerCardDeckCount, $iSumOfCardsOfTheCardDecks )
+        _ShowUserWinsOnGui()
+        _ShowCardCount( $iUserCardDeckCount, $iComputerCardDeckCount, $iSumOfCardsOfTheCardDecks )
     EndIf
 
-    If _doesComputerWins( $iUserCardIndex, $iComputerCardIndex ) Then
-        _setComputerCardDeck( $sCardUser, $sCardComputer )
+    If _DoesComputerWins( $iUserCardIndex, $iComputerCardIndex ) Then
+        _SetComputerCardDeck( $sCardUser, $sCardComputer )
 
-        Local $iUserCardDeckCount        = _getCount( $aUserCardDeck ) + 1
-        Local $iComputerCardDeckCount    = _getCount( $aComputerCardDeck ) + 1
+        Local $iUserCardDeckCount        = _GetCount( $aUserCardDeck ) + 1
+        Local $iComputerCardDeckCount    = _GetCount( $aComputerCardDeck ) + 1
         Local $iSumOfCardsOfTheCardDecks = $iUserCardDeckCount + $iComputerCardDeckCount
 
-        _showComputerWinsOnGui()
-        _showCardCount( $iUserCardDeckCount, $iComputerCardDeckCount, $iSumOfCardsOfTheCardDecks )
+        _ShowComputerWinsOnGui()
+        _ShowCardCount( $iUserCardDeckCount, $iComputerCardDeckCount, $iSumOfCardsOfTheCardDecks )
     EndIf
 
-    If _isTie( $iUserCardIndex, $iComputerCardIndex ) Then
-        _setUserAndComputerCardDecks( $sCardUser, $sCardComputer )
+    If _IsTie( $iUserCardIndex, $iComputerCardIndex ) Then
+        _SetUserAndComputerCardDecks( $sCardUser, $sCardComputer )
 
-        Local $iUserCardDeckCount        = _getCount( $aUserCardDeck ) + 1
-        Local $iComputerCardDeckCount    = _getCount( $aComputerCardDeck ) + 1
+        Local $iUserCardDeckCount        = _GetCount( $aUserCardDeck ) + 1
+        Local $iComputerCardDeckCount    = _GetCount( $aComputerCardDeck ) + 1
         Local $iSumOfCardsOfTheCardDecks = $iUserCardDeckCount + $iComputerCardDeckCount
 
-        _showTieOnGui()
-        _showCardCount( $iUserCardDeckCount, $iComputerCardDeckCount, $iSumOfCardsOfTheCardDecks )
+        _ShowTieOnGui()
+        _ShowCardCount( $iUserCardDeckCount, $iComputerCardDeckCount, $iSumOfCardsOfTheCardDecks )
     EndIf
 EndFunc
 
-Func _getCount( $aCardDeck )
+Func _GetCount( $aCardDeck )
     Return UBound( $aCardDeck ) - 1
 EndFunc
 
-Func _userPlaysCard()
-    Local $iUserCardDeckCount = _getCount( $aUserCardDeck )
+Func _UserPlaysCard()
+    Local $iUserCardDeckCount = _GetCount( $aUserCardDeck )
 
     Return $aUserCardDeck[$iUserCardDeckCount]
 EndFunc
 
-Func _computerPlaysCard()
-    Local $iComputerCardDeckCount = _getCount( $aComputerCardDeck )
+Func _ComputerPlaysCard()
+    Local $iComputerCardDeckCount = _GetCount( $aComputerCardDeck )
 
     Return $aComputerCardDeck[$iComputerCardDeckCount]
 EndFunc
 
-Func _getCardWithoutSuit( $sPlayerCard )
+Func _GetCardWithoutSuit( $sPlayerCard )
     Return StringSplit( $sPlayerCard, '-' )[1]
 EndFunc
 
-Func _getCardIndex( $sPlayerCardWithoutSuit )
-    Local $iCardRankingCount = _getCount( $aListOfCardsRanking )
+Func _GetCardIndex( $sPlayerCardWithoutSuit )
+    Local $iCardRankingCount = _GetCount( $aListOfCardsRanking )
 
     For $i = 0 To $iCardRankingCount Step 1
         If $sPlayerCardWithoutSuit == $aListOfCardsRanking[$i] Then
@@ -85,31 +85,31 @@ Func _getCardIndex( $sPlayerCardWithoutSuit )
     Next
 EndFunc
 
-Func _isTheEndReached()
-    If _isMaxRoundReached() Then
-        _resetWinsLabels()
+Func _IsTheEndReached()
+    If _IsMaxRoundReached() Then
+        _ResetWinsLabels()
 
-        If _getCount( $aUserCardDeck ) + 1 < _getCount( $aComputerCardDeck ) + 1 Then
-            _showComputerWinsOnGui()
-        ElseIf _getCount( $aUserCardDeck ) + 1 > _getCount( $aComputerCardDeck ) + 1 Then
-            _showUserWinsOnGui()
+        If _GetCount( $aUserCardDeck ) + 1 < _GetCount( $aComputerCardDeck ) + 1 Then
+            _ShowComputerWinsOnGui()
+        ElseIf _GetCount( $aUserCardDeck ) + 1 > _GetCount( $aComputerCardDeck ) + 1 Then
+            _ShowUserWinsOnGui()
         Else
-            _showTieOnGui()
+            _ShowTieOnGui()
         EndIf
 
         Return True
     EndIf
 
-    If _getCount( $aUserCardDeck ) + 1 == 0 Then
-        _resetWinsLabels()
-        _showComputerWinsOnGui()
+    If _GetCount( $aUserCardDeck ) + 1 == 0 Then
+        _ResetWinsLabels()
+        _ShowComputerWinsOnGui()
 
         Return True
     EndIf
 
-    If _getCount( $aComputerCardDeck ) + 1 == 0 Then
-        _resetWinsLabels()
-        _showUserWinsOnGui()
+    If _GetCount( $aComputerCardDeck ) + 1 == 0 Then
+        _ResetWinsLabels()
+        _ShowUserWinsOnGui()
 
         Return True
     EndIf
@@ -117,6 +117,6 @@ Func _isTheEndReached()
     Return False
 EndFunc
 
-Func _isMaxRoundReached()
+Func _IsMaxRoundReached()
     Return $iRound - 1 == $iMaxRounds
 EndFunc

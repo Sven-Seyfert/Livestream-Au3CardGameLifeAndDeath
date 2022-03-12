@@ -1,25 +1,25 @@
-Func _dealCardsToPlayer()
-    Local $iUserCardDeckCount     = _getCount( $aUserCardDeck )
-    Local $iComputerCardDeckCount = _getCount( $aComputerCardDeck )
+Func _DealCardsToPlayer()
+    Local $iUserCardDeckCount     = _GetCount( $aUserCardDeck )
+    Local $iComputerCardDeckCount = _GetCount( $aComputerCardDeck )
 
     If $iUserCardDeckCount <> $iComputerCardDeckCount Then
         Exit
     EndIf
 
     For $i = 0 To $iUserCardDeckCount Step 1
-        Local $iListIndex = _getValidListIndex()
+        Local $iListIndex = _GetValidListIndex()
         Local $sCard      = $aListOfCards[$iListIndex]
 
         $aUserCardDeck[$i] = $sCard
 
-        Local $iListIndex = _getValidListIndex()
+        Local $iListIndex = _GetValidListIndex()
         Local $sCard      = $aListOfCards[$iListIndex]
 
         $aComputerCardDeck[$i] = $sCard
     Next
 EndFunc
 
-Func _getValidListIndex()
+Func _GetValidListIndex()
     While True
         Local $iZeroBasedCountOfCards = $iCountOfCards - 1
         Local $iListIndex             = Random( 0, $iZeroBasedCountOfCards, 1 )

@@ -1,10 +1,10 @@
-Func _showRoundOnGui()
+Func _ShowRoundOnGui()
     GUICtrlDelete( $cRound )
     $cRound = GUICtrlCreateLabel( $iRound & '/' & $iMaxRounds, 5, 5, 100 )
     GUICtrlSetFont( $cRound, 13, 800 )
 EndFunc
 
-Func _showNamesOnGui()
+Func _ShowNamesOnGui()
     GUICtrlCreateLabel( 'You', 102, 35, 100, 35 )
     GUICtrlSetFont( -1, 19, 800 )
 
@@ -15,7 +15,7 @@ Func _showNamesOnGui()
     GUICtrlSetFont( -1, 13, 800 )
 EndFunc
 
-Func _showCardsOnGui( $sCardOfUser, $sCardOfComputer )
+Func _ShowCardsOnGui( $sCardOfUser, $sCardOfComputer )
     Local $iOffset  = 5
     Local $iRandom1 = 80
     Local $iRandom2 = 300
@@ -25,31 +25,31 @@ Func _showCardsOnGui( $sCardOfUser, $sCardOfComputer )
     Local $iXPositionComputer = Random( $iRandom2 - $iOffset, $iRandom2 + $iOffset, 1 )
     Local $iYPositionComputer = Random( $iRandom1 - $iOffset, $iRandom1 + $iOffset, 1 )
 
-    _createCardImage( $sCardOfUser, $iXPositionUser, $iYPositionUser )
-    _createCardImage( $sCardOfComputer, $iXPositionComputer, $iYPositionComputer )
+    _CreateCardImage( $sCardOfUser, $iXPositionUser, $iYPositionUser )
+    _CreateCardImage( $sCardOfComputer, $iXPositionComputer, $iYPositionComputer )
 EndFunc
 
-Func _createCardImage( $sCard, $iXPosition, $iYPosition )
+Func _CreateCardImage( $sCard, $iXPosition, $iYPosition )
     GUICtrlCreatePic( $sPathToCards & $sCard & '.jpg', $iXPosition, $iYPosition, $iCardWidth, $iCardHeight )
     GUICtrlCreatePic( $sPathToCards & $sCard & '.jpg', $iXPosition, $iYPosition, $iCardWidth, $iCardHeight )
 EndFunc
 
-Func _showUserWinsOnGui()
+Func _ShowUserWinsOnGui()
     $cUserWins = GUICtrlCreateLabel( 'wins', 105, 218, 100, 35 )
     GUICtrlSetFont( $cUserWins, 16, 800 )
 EndFunc
 
-Func _showComputerWinsOnGui()
+Func _ShowComputerWinsOnGui()
     $cComputerWins = GUICtrlCreateLabel( 'wins', 328, 218, 100, 35 )
     GUICtrlSetFont( $cComputerWins, 16, 800 )
 EndFunc
 
-Func _showTieOnGui()
+Func _ShowTieOnGui()
     $cTie = GUICtrlCreateLabel( 'tie', 227, 220, 100, 35 )
     GUICtrlSetFont( $cTie, 13, 800 )
 EndFunc
 
-Func _showCardCount( $iUserCardDeckCount, $iComputerCardDeckCount, $iSumOfCardsOfTheCardDecks )
+Func _ShowCardCount( $iUserCardDeckCount, $iComputerCardDeckCount, $iSumOfCardsOfTheCardDecks )
     $cUserCardDeckCount = GUICtrlCreateLabel( $iUserCardDeckCount, 112, 300, 100, 35 )
     GUICtrlSetFont( $cUserCardDeckCount, 19, 800 )
 
@@ -60,7 +60,7 @@ Func _showCardCount( $iUserCardDeckCount, $iComputerCardDeckCount, $iSumOfCardsO
     GUICtrlSetFont( $cSumOfCardsOfTheCardDecks, 13, 800 )
 EndFunc
 
-Func _resetGuiLabels()
+Func _ResetGuiLabels()
     GUICtrlDelete( $cUserWins )
     GUICtrlDelete( $cComputerWins )
     GUICtrlDelete( $cTie )
@@ -69,7 +69,7 @@ Func _resetGuiLabels()
     GUICtrlDelete( $cSumOfCardsOfTheCardDecks )
 EndFunc
 
-Func _resetWinsLabels()
+Func _ResetWinsLabels()
     GUICtrlDelete( $cUserWins )
     GUICtrlDelete( $cComputerWins )
 EndFunc

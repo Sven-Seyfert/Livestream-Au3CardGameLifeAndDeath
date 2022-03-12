@@ -1,4 +1,4 @@
-Func _exit()
+Func _Exit()
     MsgBox( 64, 'Information', 'The End')
     GUIDelete( $hGui )
 

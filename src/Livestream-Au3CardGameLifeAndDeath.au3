@@ -1,9 +1,9 @@
 ; compiler information for AutoIt
 #pragma compile(CompanyName, © SOLVE SMART)
-#pragma compile(FileVersion, 1.2.0)
+#pragma compile(FileVersion, 1.3.0)
 #pragma compile(LegalCopyright, © Sven Seyfert)
 #pragma compile(ProductName, Livestream-Au3CardGameLifeAndDeath)
-#pragma compile(ProductVersion, 1.2.0 - 2022-02-11)
+#pragma compile(ProductVersion, 1.3.0 - 2022-03-12)
 
 #AutoIt3Wrapper_AU3Check_Stop_OnWarning=y
 #AutoIt3Wrapper_Icon=..\media\favicon.ico
@@ -44,17 +44,17 @@ If $aInst[0][0] > 1 Then Exit
 ; processing -------------------------------------------------------------------
 ;~ https://en.wikipedia.org/wiki/Bettelmann
 ;~ https://en.wikipedia.org/wiki/Standard_52-card_deck
-HotKeySet( '{ESC}', '_exit' )
+HotKeySet( '{ESC}', '_Exit' )
 
 _SoundPlay( $aSoundShuffle )
 
-_createGui()
-_showRoundOnGui()
-_showNamesOnGui()
+_CreateGui()
+_ShowRoundOnGui()
+_ShowNamesOnGui()
 
 _SoundPlay( $aSoundCardDeal )
 
-_dealCardsToPlayer()
+_DealCardsToPlayer()
 
 ;~ _ArrayDisplay( $aListOfCardsRanking )
 ;~ _ArrayDisplay( $aListOfCards )
@@ -64,17 +64,17 @@ _dealCardsToPlayer()
 While True
     Switch GUIGetMsg()
         Case $GUI_EVENT_CLOSE
-            _exit()
+            _Exit()
 
         Case $cLabelMove
             $iRound += 1
-            _playLifeAndDeath()
+            _PlayLifeAndDeath()
 
         Case $cLabelMoveTen
             For $i = 1 To 10 Step 1
                 $iRound += 1
 
-                _playLifeAndDeath( False )
+                _PlayLifeAndDeath( False )
             Next
     EndSwitch
 WEnd
