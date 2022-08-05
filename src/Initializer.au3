@@ -73,7 +73,7 @@ Global $sPathToCards = '..\media\images\'
 
 Global $iPlayerCount            = 2
 Global $iCardsSymbolOccurrence  = 1
-Global $iCountOfCards           = UBound( $aListOfCards )
+Global $iCountOfCards           = UBound($aListOfCards)
 Global $iCardDeckCountPerPlayer = $iCountOfCards * $iCardsSymbolOccurrence / $iPlayerCount
 Global $iMaxRounds              = $iCardDeckCountPerPlayer
 
