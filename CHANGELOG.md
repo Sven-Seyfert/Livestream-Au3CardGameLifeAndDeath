@@ -11,6 +11,12 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 ## [Unreleased]
 
+## [1.5.0] - 2022-08-05
+
+### Changed
+
+- Fulfill code style recommendation.
+
 ## [1.4.0] - 2022-08-05
 
 ### Changed
@@ -67,7 +73,8 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 - Remove word "extension" in CHANGELOG.md file.
 - Date in CHANGELOG.md file.
 
-[Unreleased]: https://github.com/Sven-Seyfert/Livestream-Au3CardGameLifeAndDeath/compare/v1.4.0...HEAD
+[Unreleased]: https://github.com/Sven-Seyfert/Livestream-Au3CardGameLifeAndDeath/compare/v1.5.0...HEAD
+[1.5.0]: https://github.com/Sven-Seyfert/Livestream-Au3CardGameLifeAndDeath/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/Sven-Seyfert/Livestream-Au3CardGameLifeAndDeath/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/Sven-Seyfert/Livestream-Au3CardGameLifeAndDeath/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/Sven-Seyfert/Livestream-Au3CardGameLifeAndDeath/compare/v1.1.0...v1.2.0
