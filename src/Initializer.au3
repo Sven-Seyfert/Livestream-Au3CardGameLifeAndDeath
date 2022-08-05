@@ -68,8 +68,8 @@ Global $aListOfAlreadyDealtCards = _
 ;~             '0', '0', '0', '0' _
 ;~         ]
 
-Global $sPathToSound = '..\media\'
-Global $sPathToCards = '..\images\'
+Global $sPathToSound = '..\media\sounds\'
+Global $sPathToCards = '..\media\images\'
 
 Global $iPlayerCount            = 2
 Global $iCardsSymbolOccurrence  = 1
